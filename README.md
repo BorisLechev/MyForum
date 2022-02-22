@@ -1,1 +1,1 @@
-# MyForum
+# MyForum (.NET Core WEB API + React)
