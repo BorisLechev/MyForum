@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Web.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Web.ViewModels", "Web\MyForum.Web.ViewModels\MyForum.Web.ViewModels.csproj", "{C009CCE3-5738-4959-B22F-8CFA78FB9683}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DFEE3A70-942E-455D-BBEE-B4DA77D2F6D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Services.Data", "Services\MyForum.Services.Data\MyForum.Services.Data.csproj", "{93CAB38D-2E60-4A98-9FC6-74116020499E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{C009CCE3-5738-4959-B22F-8CFA78FB9683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C009CCE3-5738-4959-B22F-8CFA78FB9683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C009CCE3-5738-4959-B22F-8CFA78FB9683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CAB38D-2E60-4A98-9FC6-74116020499E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CAB38D-2E60-4A98-9FC6-74116020499E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CAB38D-2E60-4A98-9FC6-74116020499E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CAB38D-2E60-4A98-9FC6-74116020499E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +45,7 @@ Global
 		{5C8AF348-1720-45BA-8445-6734AAB10E2A} = {B2EA430E-C91D-4B38-A8CC-95366F04A1AD}
 		{E58C97B4-FF0E-4C0D-ACBF-237639333FDB} = {B2EA430E-C91D-4B38-A8CC-95366F04A1AD}
 		{C009CCE3-5738-4959-B22F-8CFA78FB9683} = {B2EA430E-C91D-4B38-A8CC-95366F04A1AD}
+		{93CAB38D-2E60-4A98-9FC6-74116020499E} = {DFEE3A70-942E-455D-BBEE-B4DA77D2F6D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93A21EAC-04F9-4A9C-9A3F-68D01B11038C}
