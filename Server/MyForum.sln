@@ -7,21 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B2EA430E-C91
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Web.API", "Web\MyForum.Web.API\MyForum.Web.API.csproj", "{5C8AF348-1720-45BA-8445-6734AAB10E2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Web.Infrastructure", "Web\MyForum.Web.Infrastructure\MyForum.Web.Infrastructure.csproj", "{E58C97B4-FF0E-4C0D-ACBF-237639333FDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Web.Infrastructure", "Web\MyForum.Web.Infrastructure\MyForum.Web.Infrastructure.csproj", "{E58C97B4-FF0E-4C0D-ACBF-237639333FDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Web.ViewModels", "Web\MyForum.Web.ViewModels\MyForum.Web.ViewModels.csproj", "{C009CCE3-5738-4959-B22F-8CFA78FB9683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Web.ViewModels", "Web\MyForum.Web.ViewModels\MyForum.Web.ViewModels.csproj", "{C009CCE3-5738-4959-B22F-8CFA78FB9683}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DFEE3A70-942E-455D-BBEE-B4DA77D2F6D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Services.Data", "Services\MyForum.Services.Data\MyForum.Services.Data.csproj", "{93CAB38D-2E60-4A98-9FC6-74116020499E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Services.Data", "Services\MyForum.Services.Data\MyForum.Services.Data.csproj", "{93CAB38D-2E60-4A98-9FC6-74116020499E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Services.Mapping", "Services\MyForum.Services.Mapping\MyForum.Services.Mapping.csproj", "{F1F39511-C095-49A7-804E-71E466791725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Services.Mapping", "Services\MyForum.Services.Mapping\MyForum.Services.Mapping.csproj", "{F1F39511-C095-49A7-804E-71E466791725}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{84588896-0B55-469D-A367-EC7BEC23E17A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Data.Models", "Data\MyForum.Data.Models\MyForum.Data.Models.csproj", "{2477A20B-3654-4991-A3A1-4A5FD725AEC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Data.Models", "Data\MyForum.Data.Models\MyForum.Data.Models.csproj", "{2477A20B-3654-4991-A3A1-4A5FD725AEC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Data.Common", "Data\MyForum.Data.Common\MyForum.Data.Common.csproj", "{39447000-3B73-46C0-8CDB-08290B4BF58C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyForum.Data.Common", "Data\MyForum.Data.Common\MyForum.Data.Common.csproj", "{39447000-3B73-46C0-8CDB-08290B4BF58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Data", "Data\MyForum.Data\MyForum.Data.csproj", "{F0720162-337D-4E90-AAFD-124793A5C4DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyForum.Common", "MyForum.Common\MyForum.Common.csproj", "{FFAD06DC-74ED-49AC-90B1-540C8156A2FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{39447000-3B73-46C0-8CDB-08290B4BF58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39447000-3B73-46C0-8CDB-08290B4BF58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39447000-3B73-46C0-8CDB-08290B4BF58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0720162-337D-4E90-AAFD-124793A5C4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0720162-337D-4E90-AAFD-124793A5C4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0720162-337D-4E90-AAFD-124793A5C4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0720162-337D-4E90-AAFD-124793A5C4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAD06DC-74ED-49AC-90B1-540C8156A2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAD06DC-74ED-49AC-90B1-540C8156A2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAD06DC-74ED-49AC-90B1-540C8156A2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAD06DC-74ED-49AC-90B1-540C8156A2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +81,7 @@ Global
 		{F1F39511-C095-49A7-804E-71E466791725} = {DFEE3A70-942E-455D-BBEE-B4DA77D2F6D0}
 		{2477A20B-3654-4991-A3A1-4A5FD725AEC4} = {84588896-0B55-469D-A367-EC7BEC23E17A}
 		{39447000-3B73-46C0-8CDB-08290B4BF58C} = {84588896-0B55-469D-A367-EC7BEC23E17A}
+		{F0720162-337D-4E90-AAFD-124793A5C4DE} = {84588896-0B55-469D-A367-EC7BEC23E17A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93A21EAC-04F9-4A9C-9A3F-68D01B11038C}

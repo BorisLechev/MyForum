@@ -14,8 +14,6 @@ namespace MyForum.Data.Common.Repositories
 
         Task AddAsync(TEntity entity);
 
-        Task AddRangeAsync(IEnumerable<TEntity> entities);
-
         void Update(TEntity entity);
 
         void Delete(TEntity entity);
