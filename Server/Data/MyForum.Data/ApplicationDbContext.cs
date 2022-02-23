@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using MyForum.Data.Common.Models;
-using MyForum.Data.Models;
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace MyForum.Data
+﻿namespace MyForum.Data
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
+    using MyForum.Data.Common.Models;
+    using MyForum.Data.Models;
+
     public class ApplicationDbContext : IdentityDbContext<User, UserRole, string>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MyForum.Data.Common.Repositories
+﻿namespace MyForum.Data.Common.Repositories
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public interface IRepository<TEntity> : IDisposable
         where TEntity : class
     {

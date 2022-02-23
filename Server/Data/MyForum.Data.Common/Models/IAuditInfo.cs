@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace MyForum.Data.Common.Models
+﻿namespace MyForum.Data.Common.Models
 {
+    using System;
+
     public interface IAuditInfo
     {
         DateTime CreatedOn { get; set; }

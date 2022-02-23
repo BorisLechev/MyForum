@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using MyForum.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyForum.Data.Models
+﻿namespace MyForum.Data.Models
 {
+    using System;
+
+    using Microsoft.AspNetCore.Identity;
+    using MyForum.Data.Common.Models;
+
     public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public User()

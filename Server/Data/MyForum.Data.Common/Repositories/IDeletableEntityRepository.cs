@@ -1,8 +1,9 @@
-﻿using MyForum.Data.Common.Models;
-using System.Linq;
-
-namespace MyForum.Data.Common.Repositories
+﻿namespace MyForum.Data.Common.Repositories
 {
+    using System.Linq;
+
+    using MyForum.Data.Common.Models;
+
     public interface IDeletableEntityRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDeletableEntity
     {

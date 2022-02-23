@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyForum.Data.Common.Models;
-using System.Linq;
-
-namespace MyForum.Data
+﻿namespace MyForum.Data
 {
+    using System.Linq;
+
+    using Microsoft.EntityFrameworkCore;
+    using MyForum.Data.Common.Models;
+
     internal static class EntityIndexesConfiguration
     {
         public static void Configure(ModelBuilder modelBuilder)

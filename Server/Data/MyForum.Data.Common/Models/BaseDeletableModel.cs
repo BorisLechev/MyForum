@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace MyForum.Data.Common.Models
+﻿namespace MyForum.Data.Common.Models
 {
+    using System;
+
     public abstract class BaseDeletableModel<TKey> : BaseModel<TKey>, IDeletableEntity
     {
         public bool IsDeleted { get; set; }

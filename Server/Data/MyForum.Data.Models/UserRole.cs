@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using MyForum.Data.Common.Models;
-using System;
-
-namespace MyForum.Data.Models
+﻿namespace MyForum.Data.Models
 {
+    using System;
+
+    using Microsoft.AspNetCore.Identity;
+    using MyForum.Data.Common.Models;
+
     public class UserRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
         public UserRole()
@@ -21,7 +22,6 @@ namespace MyForum.Data.Models
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
-
 
         // Deletable entity
         public bool IsDeleted { get; set; }

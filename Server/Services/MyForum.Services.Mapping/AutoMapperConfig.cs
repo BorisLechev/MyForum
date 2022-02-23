@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-namespace MyForum.Services.Mapping
+﻿namespace MyForum.Services.Mapping
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+
+    using AutoMapper;
+
     public static class AutoMapperConfig
     {
         private static bool initialized;

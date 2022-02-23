@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyForum.Data.Common.Models;
-using MyForum.Data.Common.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyForum.Data.Repositories
+﻿namespace MyForum.Data.Repositories
 {
+    using System;
+    using System.Linq;
+
+    using Microsoft.EntityFrameworkCore;
+    using MyForum.Data.Common.Models;
+    using MyForum.Data.Common.Repositories;
+
     public class EfDeletableEntityRepository<TEntity> : EfRepository<TEntity>, IDeletableEntityRepository<TEntity>
         where TEntity : class, IDeletableEntity
     {

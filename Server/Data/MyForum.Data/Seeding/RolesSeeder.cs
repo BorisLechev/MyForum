@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using MyForum.Common;
-using MyForum.Data.Models;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MyForum.Data.Seeding
+﻿namespace MyForum.Data.Seeding
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.DependencyInjection;
+    using MyForum.Common;
+    using MyForum.Data.Models;
+
     internal class RolesSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)

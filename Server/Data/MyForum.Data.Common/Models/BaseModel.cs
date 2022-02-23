@@ -1,8 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace MyForum.Data.Common.Models
+﻿namespace MyForum.Data.Common.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public abstract class BaseModel<TKey> : IAuditInfo
     {
         [Key]

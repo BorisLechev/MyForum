@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace MyForum.Data
+﻿namespace MyForum.Data
 {
+    using Microsoft.AspNetCore.Identity;
+
     public static class IdentityOptionsProvider
     {
         public static void GetIdentityOptions(IdentityOptions options)
