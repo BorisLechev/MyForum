@@ -1,5 +1,6 @@
 ﻿namespace MyForum.Web.API
 {
+    using System.Reflection;
     using System.Text;
 
     using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,8 +14,13 @@
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
     using MyForum.Data;
+    using MyForum.Data.Common.Repositories;
     using MyForum.Data.Models;
+    using MyForum.Data.Repositories;
     using MyForum.Data.Seeding;
+    using MyForum.Services.Data.Articles;
+    using MyForum.Services.Mapping;
+    using MyForum.Web.ViewModels;
 
     public class Startup
     {
@@ -66,11 +72,20 @@
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyForum.Web.API", Version = "v1" });
             });
+
+            // Data repositories
+            services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+
+            // Application services
+            services.AddTransient<IArticleService, ArticleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
+
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

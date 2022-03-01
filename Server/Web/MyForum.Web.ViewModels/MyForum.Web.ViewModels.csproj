@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlSanitizer" Version="7.1.488" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.406">
       <PrivateAssets>all</PrivateAssets>
@@ -19,6 +20,11 @@
 
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MyForum.Data.Models\MyForum.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Services\MyForum.Services.Mapping\MyForum.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
