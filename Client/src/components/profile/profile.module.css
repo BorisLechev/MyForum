@@ -1,0 +1,19 @@
+.profile-img {
+	display: block;
+	width: 50%;
+	max-width: 265px;
+	margin: 0 auto;
+}
+.personal-info {
+	vertical-align: top;
+	padding: 10px;
+	margin: 0 auto;
+	color: rgb(35, 68, 101);
+	width: 50%;
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+}
+.personal-info p {
+	margin-bottom: 1%;
+}

@@ -1,0 +1,27 @@
+.navigation-list-item a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-size: large;
+}
+
+.navigation-list-item {
+	display: inline-block;
+	height: auto;
+	margin-right: 2%;
+	cursor: pointer;
+	padding: 0.5%;
+	margin: 0.1%;
+	vertical-align: top;
+}
+
+.navigation-list-item:not() {
+	padding: 10px;
+	margin-top: 7px;
+	border-top: 2px solid rgb(255, 160, 0);
+}
+
+.navigation-list-item:hover {
+	border-top: none;
+	border-bottom: 2px solid rgb(255, 160, 0);
+	font-weight: bold;
+}
