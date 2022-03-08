@@ -8,7 +8,7 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 
 const LoginPage = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const context = useContext(UserContext);
@@ -18,7 +18,7 @@ const LoginPage = () => {
         event.preventDefault();
 
         const body = {
-            userName: username,
+            email: email,
             password: password,
         };
 
@@ -40,10 +40,11 @@ const LoginPage = () => {
         <PageLayout>
             <AuthForm title="Login" onSubmit={onSubmitHandler}>
                 <Input
-                    id="username"
-                    label="Username"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
+                    id="email"
+                    label="Email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    inputType="email"
                 />
                 <Input
                     id="password"

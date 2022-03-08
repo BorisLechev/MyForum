@@ -27,6 +27,7 @@ const RegisterPage = () => {
             userName: username,
             email: email,
             password: password,
+            confirmPassword: confirmPassword,
         };
 
         await authService.register(
