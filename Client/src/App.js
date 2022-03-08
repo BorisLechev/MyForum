@@ -31,30 +31,14 @@ function App() {
       <UserContext.Provider value={{ user: user }}>
           <Router>
             <Routes>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Route exact path="/register">
-                <RegisterPage />
-              </Route>
-              <Route exact path="/logout">
-                <Logout />
-              </Route>
-              <Route exact path="/profile">
-                <ProfilePage />
-              </Route>
-              <Route exact path="/articles/create">
-                <CreatePostPage />
-              </Route>
-              <Route exact path="/articles/:id">
-                <PostDetailsPage />
-              </Route>
-              <Route exact path="/articles/edit/:id">
-                <EditPostPage />
-              </Route>
+              <Route exact path="/" element={<HomePage />} />
+              <Route exact path="/login" element={<LoginPage />} />
+              <Route exact path="/register" element={<RegisterPage />} />
+              <Route exact path="/logout" element={<Logout />} />
+              <Route exact path="/profile" element={<ProfilePage />} />
+              <Route exact path="/articles/create" element={<CreatePostPage />} />
+              <Route exact path="/articles/:id" element={<PostDetailsPage />} />
+              <Route exact path="/articles/edit/:id" element={<EditPostPage />} />
             </Routes>
           </Router>
       </UserContext.Provider>
