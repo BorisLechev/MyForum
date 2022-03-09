@@ -29,12 +29,10 @@ const EditPostPage = () => {
             content,
         };
 
-        const articleDetailsLink = `/articles/${id}`;
-
         await articlesService.editArticle(
             id,
             body,
-            () => navigate(articleDetailsLink),
+            (response) => navigate(`/articles/${response.id}`),
             (error) => console.log(error),
         );
     };

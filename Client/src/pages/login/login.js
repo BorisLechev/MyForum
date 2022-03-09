@@ -24,11 +24,13 @@ const LoginPage = () => {
 
         await authService.login(
             body,
-            (obj) => {
+            (response) => {
                 context.user = {
-                    userId: obj.userId,
-                    username: obj.userName,
+                    userId: response.userId,
+                    username: response.userName,
                 };
+
+                document.cookie = `Bearer=${response.token}`;
 
                 navigate("/");
             },

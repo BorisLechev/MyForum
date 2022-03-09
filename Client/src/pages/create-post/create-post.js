@@ -17,7 +17,7 @@ const CreatePostPage = () => {
 
         await articlesService.createArticle(
             body,
-            (id) => navigate(`/articles/${id}`),
+            (response) => navigate(`/articles/${response.id}`),
             (error) => console.log(error),
         );
     };

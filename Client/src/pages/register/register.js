@@ -32,11 +32,13 @@ const RegisterPage = () => {
 
         await authService.register(
             body,
-            (obj) => {
+            (response) => {
                 context.user = {
-                    userId: obj.userId,
-                    username: obj.username,
+                    userId: response.userId,
+                    username: response.username,
                 };
+
+                document.cookie = `Bearer=${response.token}`;
 
                 navigate("/");
             },
