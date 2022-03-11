@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../../button/button';
 import Editor from '../../editor/editor';
-import styles from './post-input.module.css';
+import styles from './article-input.module.css';
 
-const PostInputForm = ({ initialTitle, initialContent, handleFormSubmit }) => {
+const ArticleInputForm = ({ initialTitle, initialContent, handleFormSubmit }) => {
   const [model, setModel] = useState({ title: "", content: "" });
 
   useEffect(() => {
-    setModel({ title: initialContent, content: initialContent });
+    setModel({ title: initialTitle, content: initialContent });
   }, [initialTitle, initialContent]); // Only re-run the effect if initialTitle and content changes
   
   return (
@@ -29,4 +29,4 @@ const PostInputForm = ({ initialTitle, initialContent, handleFormSubmit }) => {
   );
 };
 
-export default PostInputForm;
+export default ArticleInputForm;

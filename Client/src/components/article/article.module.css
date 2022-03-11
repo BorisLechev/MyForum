@@ -1,4 +1,4 @@
-.post {
+.article {
 	width: 60%;
 	height: auto;
 	border: 1px solid rgb(35, 68, 101);
@@ -33,16 +33,16 @@
 	padding-right: 1.5%;
 }
 
-.post img {
+.article img {
 	width: 32px;
 	height: 32px;
 }
 
-.post a:link {
+.article a:link {
 	text-decoration: none;
 	color: rgb(35, 68, 101);
 }
 
-.post a:visited {
+.article a:visited {
 	color: rgb(52, 74, 97);
 }

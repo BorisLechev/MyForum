@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Logout from "./components/logout/logout";
-import CreatePostPage from "./pages/create-post/create-post";
-import EditPostPage from "./pages/edit-post/edit-post";
+import CreateArticlePage from "./pages/create-article/create-article";
+import EditArticlePage from "./pages/edit-article/edit-article";
 import HomePage from "./pages/home/home";
 import LoginPage from "./pages/login/login";
-import PostDetailsPage from "./pages/post-details/post-details";
+import ArticleDetailsPage from "./pages/article-details/article-details";
 import ProfilePage from "./pages/profile/profile";
 import RegisterPage from "./pages/register/register";
 import authService from "./services/auth";
@@ -36,9 +36,9 @@ function App() {
               <Route exact path="/register" element={<RegisterPage />} />
               <Route exact path="/logout" element={<Logout />} />
               <Route exact path="/profile" element={<ProfilePage />} />
-              <Route exact path="/articles/create" element={<CreatePostPage />} />
-              <Route exact path="/articles/:id" element={<PostDetailsPage />} />
-              <Route exact path="/articles/edit/:id" element={<EditPostPage />} />
+              <Route exact path="/articles/create" element={<CreateArticlePage />} />
+              <Route exact path="/articles/:id" element={<ArticleDetailsPage />} />
+              <Route exact path="/articles/edit/:id" element={<EditArticlePage />} />
             </Routes>
           </Router>
       </UserContext.Provider>

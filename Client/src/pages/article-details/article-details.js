@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Post from "../../components/post/post";
+import Article from "../../components/article/article";
 import articlesService from "../../services/articles";
 import PageLayout from "../layout/layout";
-import styles from "./post-details.module.css";
+import styles from "./article-details.module.css";
 
-const PostDetailsPage = () => {
+const ArticleDetailsPage = () => {
     const [article, setArticle] = useState({});
     const { id } = useParams();
     const navigate = useNavigate();
@@ -35,7 +35,7 @@ const PostDetailsPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
-                <Post
+                <Article
                     articleId={id}
                     title={article.title}
                     description={article.content}
@@ -48,4 +48,4 @@ const PostDetailsPage = () => {
     );
 };
 
-export default PostDetailsPage;
+export default ArticleDetailsPage;

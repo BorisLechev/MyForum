@@ -40,7 +40,7 @@ const getArticleById = async (id, onSuccess, onFailure) => {
 const createArticle = async (body, onSuccess, onFailure) => {
 	const cookie = document.cookie.split("=");
 
-	await crud.CREATE_ARTICLE(
+	await crud.formInput(
 		routes.CREATE_ARTICLE,
 		"POST",
 		{
@@ -56,7 +56,7 @@ const createArticle = async (body, onSuccess, onFailure) => {
 const editArticle = async (id, body, onSuccess, onFailure) => {
 	const cookie = document.cookie.split("=");
 
-	await crud.formPost(
+	await crud.formInput(
 		routes.EDIT_ARTICLE_BY_ID(id),
 		"PUT",
 		{

@@ -4,9 +4,9 @@ import ReactHtmlParser from "react-html-parser";
 import { Link } from 'react-router-dom';
 import UserContext from '../../utils/context';
 import Audit from "../audit/audit";
-import styles from './post.module.css';
+import styles from './article.module.css';
 
-const Post = ({
+const Article = ({
   index,
   articleId,
   title,
@@ -21,7 +21,7 @@ const Post = ({
   const currentUsername = context.user.username;
 
   return (
-    <div className={styles.post}>
+    <div className={styles.article}>
 			<h3 className={styles.title}>
 				{articleId ? <Link to={detailsLink}>{title}</Link> : title}
 			</h3>
@@ -48,4 +48,4 @@ const Post = ({
   );
 };
 
-export default Post;
+export default Article;

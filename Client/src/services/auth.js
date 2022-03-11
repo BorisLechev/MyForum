@@ -10,8 +10,9 @@ const register = async (body, onSuccess, onFailure) => {
 };
 
 const authenticate = async (url, body, onSuccess, onFailure) => {
-	await crud.formPost(
+	await crud.formInput(
 		url,
+		"POST",
 		{
 			"Content-Type": "application/json",
 		},

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Posts from "../../components/posts/posts";
+import Articles from "../../components/articles/articles";
 import articlesService from "../../services/articles";
 import UserContext from '../../utils/context';
 import PageLayout from "../layout/layout";
@@ -28,7 +28,7 @@ const HomePage = () => {
                     Create Article
                 </Link>
             ) : null}
-            <Posts initialPosts={articles} />
+            <Articles initialArticles={articles} />
         </PageLayout>
     );
 };

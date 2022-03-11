@@ -17,10 +17,10 @@ const get = async (url, headers, onSuccess, onFailure) => {
     }
 };
 
-const formPost = async (url, headers, body, onSuccess, onFailure) => {
+const formInput = async (url, method, headers, body, onSuccess, onFailure) => {
     try {
         const promise = await fetch(url, {
-            method: "POST",
+            method: method,
             body: JSON.stringify(body),
             headers: headers,
         });
@@ -63,7 +63,7 @@ const remove = async (url, onSuccess, onFailure) => {
 
 const obj = {
     get,
-    formPost,
+    formInput,
     remove,
 };
 
