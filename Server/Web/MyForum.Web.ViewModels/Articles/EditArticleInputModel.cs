@@ -7,8 +7,6 @@
 
     public class EditArticleInputModel
     {
-        public int Id { get; set; }
-
         [Required(AllowEmptyStrings = false)]
         [MinLength(GlobalConstants.TitleMinLength)]
         [MaxLength(GlobalConstants.TitleMaxLength)]
@@ -18,7 +16,5 @@
         public string Content { get; set; }
 
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
-
-        public string AuthorId { get; set; }
     }
 }

@@ -5,7 +5,7 @@
     public class LoginInputModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required.")]
-        public string Email { get; set; }
+        public string UserName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password field is required.")]
         public string Password { get; set; }

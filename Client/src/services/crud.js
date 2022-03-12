@@ -41,7 +41,7 @@ const remove = async (url, onSuccess, onFailure) => {
     try {
         const cookie = document.cookie.split("=");
         
-        const promise = await fetch(url, {
+        const response = await fetch(url, {
             method: "DELETE",
             headers: {
 				"Content-Type": "application/json",
@@ -49,9 +49,7 @@ const remove = async (url, onSuccess, onFailure) => {
 			},
         });
 
-        const response = await promise.json();
-
-		if (response) {
+		if (response.ok) {
 			onSuccess();
 		} else {
 			onFailure();

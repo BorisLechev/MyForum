@@ -19,19 +19,19 @@
             this.articlesRepository = articlesRepository;
         }
 
-        public async Task<bool> AddArticleAsync(CreateArticleInputModel inputModel)
+        public async Task<int> AddArticleAsync(CreateArticleInputModel inputModel, string userId)
         {
             var article = new Article
             {
                 Title = inputModel.Title,
                 Content = inputModel.SanitizedContent,
-                AuthorId = inputModel.UserId,
+                AuthorId = userId,
             };
 
             await this.articlesRepository.AddAsync(article);
-            var result = await this.articlesRepository.SaveChangesAsync();
+            await this.articlesRepository.SaveChangesAsync();
 
-            return result > 0;
+            return article.Id;
         }
 
         public async Task<IEnumerable<ArticleDetailsViewModel>> AllAsync()
@@ -88,13 +88,13 @@
             return article;
         }
 
-        public async Task<bool> EditAsync(EditArticleInputModel inputModel)
+        public async Task<bool> EditAsync(EditArticleInputModel inputModel, string userId, int articleId)
         {
             var article = await this.articlesRepository
                 .All()
-                .SingleOrDefaultAsync(a => a.Id == inputModel.Id);
+                .SingleOrDefaultAsync(a => a.Id == articleId);
 
-            if (inputModel.AuthorId != article.AuthorId)
+            if (userId != article.AuthorId)
             {
                 return false;
             }

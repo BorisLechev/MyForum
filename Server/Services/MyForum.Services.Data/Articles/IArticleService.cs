@@ -11,11 +11,11 @@
 
         Task<IEnumerable<ArticleDetailsViewModel>> AllByUserIdAsync(string userId);
 
-        Task<bool> AddArticleAsync(CreateArticleInputModel inputModel);
+        Task<int> AddArticleAsync(CreateArticleInputModel inputModel, string userId);
 
         Task<ArticleDetailsViewModel> DetailsAsync(int id);
 
-        Task<bool> EditAsync(EditArticleInputModel inputModel);
+        Task<bool> EditAsync(EditArticleInputModel inputModel, string userId, int articleId);
 
         Task<bool> DeleteAsync(int id, string userId);
     }

@@ -8,7 +8,7 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const context = useContext(UserContext);
@@ -18,7 +18,7 @@ const LoginPage = () => {
         event.preventDefault();
 
         const body = {
-            email: email,
+            username: username,
             password: password,
         };
 
@@ -27,7 +27,7 @@ const LoginPage = () => {
             (response) => {
                 context.user = {
                     userId: response.userId,
-                    username: response.userName,
+                    username: response.username,
                 };
 
                 document.cookie = `Bearer=${response.token}`;
@@ -42,11 +42,10 @@ const LoginPage = () => {
         <PageLayout>
             <AuthForm title="Login" onSubmit={onSubmitHandler}>
                 <Input
-                    id="email"
-                    label="Email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    inputType="email"
+                    id="username"
+                    label="Username"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
                 />
                 <Input
                     id="password"

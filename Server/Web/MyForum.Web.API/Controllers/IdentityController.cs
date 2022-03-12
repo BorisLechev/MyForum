@@ -1,31 +1,31 @@
 ﻿namespace MyForum.Web.API.Controllers
 {
-    using System;
-    using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
-    using System.Text;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Options;
-    using Microsoft.IdentityModel.Tokens;
     using MyForum.Common;
     using MyForum.Data.Models;
+    using MyForum.Services.Data.Identity;
     using MyForum.Web.ViewModels.Identity;
 
     [AllowAnonymous]
     public class IdentityController : ApiController
     {
         private readonly UserManager<User> userManager;
+        private readonly IIdentityService identityService;
         private readonly ApplicationSettings appSettings;
 
         public IdentityController(
             UserManager<User> userManager,
-            IOptions<ApplicationSettings> appSettings)
+            IOptions<ApplicationSettings> appSettings,
+            IIdentityService identityService)
         {
             this.userManager = userManager;
+            this.identityService = identityService;
             this.appSettings = appSettings.Value;
         }
 
@@ -50,7 +50,7 @@
 
             var loginInputModel = new LoginInputModel
             {
-                Email = inputModel.Email,
+                UserName = inputModel.UserName,
                 Password = inputModel.Password,
             };
 
@@ -61,7 +61,7 @@
         [Route(nameof(Login))]
         public async Task<IActionResult> Login(LoginInputModel inputModel)
         {
-            var user = await this.userManager.FindByEmailAsync(inputModel.Email);
+            var user = await this.userManager.FindByNameAsync(inputModel.UserName);
 
             if (user == null)
             {
@@ -75,30 +75,34 @@
                 return this.Unauthorized();
             }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(this.appSettings.Secret);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Email, user.Email),
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var encryptedToken = tokenHandler.WriteToken(token);
+            var encryptedToken = this.identityService.GenerateJwtToken(user.Id, user.UserName, user.Email, this.appSettings.Secret);
 
             return this.Ok(new LoginResponseModel
             {
-                Email = user.Email,
-                UserName = user.UserName,
+                Username = user.UserName,
                 UserId = user.Id,
                 Token = encryptedToken,
             });
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<LoginResponseModel>> GetUserDetails()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userName = this.User.Identity.Name;
+            var email = this.User.FindFirstValue(ClaimTypes.Email);
+
+            var encryptedToken = this.identityService.GenerateJwtToken(userId, userName, email, this.appSettings.Secret);
+
+            var result = new LoginResponseModel
+            {
+                UserId = userId,
+                Username = userName,
+                Token = encryptedToken,
+            };
+
+            return result;
         }
     }
 }

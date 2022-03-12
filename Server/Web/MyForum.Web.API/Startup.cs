@@ -19,6 +19,7 @@
     using MyForum.Data.Repositories;
     using MyForum.Data.Seeding;
     using MyForum.Services.Data.Articles;
+    using MyForum.Services.Data.Identity;
     using MyForum.Services.Mapping;
     using MyForum.Web.ViewModels;
 
@@ -78,6 +79,7 @@
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
             // Application services
+            services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IArticleService, ArticleService>();
         }
 

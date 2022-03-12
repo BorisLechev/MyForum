@@ -40,18 +40,23 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Create(CreateArticleInputModel inputModel)
+        public async Task<ActionResult<CreateEditArticleResponseModel>> Create(CreateArticleInputModel inputModel)
         {
-            inputModel.UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var result = await this.articleService.AddArticleAsync(inputModel);
+            var articleId = await this.articleService.AddArticleAsync(inputModel, userId);
 
-            if (result == false)
+            if (articleId == 0)
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(result);
+            var result = new CreateEditArticleResponseModel
+            {
+                Id = articleId,
+            };
+
+            return result;
         }
 
         [HttpGet]
@@ -65,18 +70,24 @@
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Edit(EditArticleInputModel inputModel)
+        [Route("{id}")]
+        public async Task<IActionResult> Edit(int id, EditArticleInputModel inputModel)
         {
-            inputModel.AuthorId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var result = await this.articleService.EditAsync(inputModel);
+            var result = await this.articleService.EditAsync(inputModel, userId, id);
 
             if (result == false)
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(result);
+            var returnArticleId = new CreateEditArticleResponseModel
+            {
+                Id = id,
+            };
+
+            return this.Ok(returnArticleId);
         }
 
         [HttpDelete]
