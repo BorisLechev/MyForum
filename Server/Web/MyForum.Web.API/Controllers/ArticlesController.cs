@@ -1,11 +1,13 @@
 ﻿namespace MyForum.Web.API.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyForum.Common;
     using MyForum.Services.Data.Articles;
     using MyForum.Web.ViewModels.Articles;
 
@@ -19,9 +21,12 @@
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ArticleDetailsViewModel>> All()
+        public async Task<IEnumerable<ArticleDetailsViewModel>> All([FromQuery] int page = 1)
         {
-            var articles = await this.articleService.AllAsync();
+            page = Math.Max(1, page);
+            var skip = (page - 1) * GlobalConstants.ArticlesPerPage;
+
+            var articles = await this.articleService.AllAsync(GlobalConstants.ArticlesPerPage, page, skip);
 
             return articles;
         }
@@ -29,11 +34,13 @@
         [HttpGet]
         [Authorize]
         [Route("Mine")]
-        public async Task<IEnumerable<ArticleDetailsViewModel>> Mine()
+        public async Task<IEnumerable<ArticleDetailsViewModel>> Mine([FromQuery] int page = 1)
         {
+            page = Math.Max(1, page);
+            var skip = (page - 1) * GlobalConstants.ArticlesPerPage;
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var articles = await this.articleService.AllByUserIdAsync(userId);
+            var articles = await this.articleService.AllByUserIdAsync(userId, GlobalConstants.ArticlesPerPage, page, skip);
 
             return articles;
         }
@@ -105,6 +112,27 @@
             }
 
             return this.Ok();
+        }
+
+        [HttpGet]
+        [Route("Count")]
+        public async Task<int> GetArticlesCount()
+        {
+            var count = await this.articleService.AllArticlesCountAsync();
+
+            return count;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("Mine/Count")]
+        public async Task<int> GetArticlesCountByCurrentUser()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var count = await this.articleService.AllArticlesCountByUserIdAsync(userId);
+
+            return count;
         }
     }
 }

@@ -34,25 +34,48 @@
             return article.Id;
         }
 
-        public async Task<IEnumerable<ArticleDetailsViewModel>> AllAsync()
+        public async Task<IEnumerable<ArticleDetailsViewModel>> AllAsync(int articlesPerPage, int page, int skip = 0)
         {
             var articles = await this.articlesRepository
                 .AllAsNoTracking()
+                .Skip(skip)
+                .Take(articlesPerPage)
                 .To<ArticleDetailsViewModel>()
                 .ToListAsync();
 
             return articles;
         }
 
-        public async Task<IEnumerable<ArticleDetailsViewModel>> AllByUserIdAsync(string userId)
+        public async Task<int> AllArticlesCountAsync()
+        {
+            var count = await this.articlesRepository
+                .AllAsNoTracking()
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<IEnumerable<ArticleDetailsViewModel>> AllByUserIdAsync(string userId, int articlesPerPage, int page, int skip = 0)
         {
             var articles = await this.articlesRepository
                 .AllAsNoTracking()
                 .Where(a => a.AuthorId == userId)
+                .OrderByDescending(a => a.CreatedOn)
+                .Skip(skip)
+                .Take(articlesPerPage)
                 .To<ArticleDetailsViewModel>()
                 .ToListAsync();
 
             return articles;
+        }
+
+        public async Task<int> AllArticlesCountByUserIdAsync(string userId)
+        {
+            var count = await this.articlesRepository
+                .AllAsNoTracking()
+                .CountAsync(a => a.AuthorId == userId);
+
+            return count;
         }
 
         public async Task<bool> DeleteAsync(int id, string userId)

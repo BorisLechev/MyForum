@@ -7,9 +7,13 @@
 
     public interface IArticleService
     {
-        Task<IEnumerable<ArticleDetailsViewModel>> AllAsync();
+        Task<IEnumerable<ArticleDetailsViewModel>> AllAsync(int articlesPerPage, int page, int skip);
 
-        Task<IEnumerable<ArticleDetailsViewModel>> AllByUserIdAsync(string userId);
+        Task<int> AllArticlesCountAsync();
+
+        Task<IEnumerable<ArticleDetailsViewModel>> AllByUserIdAsync(string userId, int articlesPerPage, int page, int skip);
+
+        Task<int> AllArticlesCountByUserIdAsync(string userId);
 
         Task<int> AddArticleAsync(CreateArticleInputModel inputModel, string userId);
 
