@@ -25,6 +25,8 @@
 
         public DbSet<Article> Articles { get; set; }
 
+        public DbSet<Vote> Votes { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
