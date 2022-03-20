@@ -20,6 +20,7 @@
     using MyForum.Data.Seeding;
     using MyForum.Services.Data.Articles;
     using MyForum.Services.Data.Identity;
+    using MyForum.Services.Data.Votes;
     using MyForum.Services.Mapping;
     using MyForum.Web.ViewModels;
 
@@ -81,6 +82,7 @@
             // Application services
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IVotesService, VotesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
