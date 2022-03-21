@@ -1,14 +1,14 @@
 const get = async (url, headers, onSuccess, onFailure) => {
     try {
-        const promise = await fetch(url, {
+        const response = await fetch(url, {
             method: "GET",
             headers: headers,
         });
 
-        const response = await promise.json();
+        if (response.ok) {
+            const json = await response.json();
 
-        if (response) {
-            onSuccess(response);
+            onSuccess(json);
         } else {
             onFailure();
         }
@@ -19,16 +19,16 @@ const get = async (url, headers, onSuccess, onFailure) => {
 
 const formInput = async (url, method, headers, body, onSuccess, onFailure) => {
     try {
-        const promise = await fetch(url, {
+        const response = await fetch(url, {
             method: method,
             body: JSON.stringify(body),
             headers: headers,
         });
 
-        const response = await promise.json();
+		if (response.ok) {
+            const json = await response.json();
 
-		if (response) {
-			onSuccess(response);
+			onSuccess(json);
 		} else {
 			onFailure();
 		}
