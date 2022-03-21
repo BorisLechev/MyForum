@@ -4,6 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 import { Link } from 'react-router-dom';
 import UserContext from '../../utils/context';
 import Audit from "../audit/audit";
+import Vote from '../vote/vote';
 import styles from './article.module.css';
 
 const Article = ({
@@ -13,6 +14,7 @@ const Article = ({
   description,
   author,
   createdOn,
+  initialVotes,
   deleteHandler,
 }) => {
   const detailsLink = `/articles/${articleId}`;
@@ -29,6 +31,7 @@ const Article = ({
 				{ReactHtmlParser(description)}
 			</div>
 			<div className={styles.audit}>
+				<Vote initialVotes={initialVotes} articleId={articleId} />
 				{currentUsername === author ? (
 					<Audit
 						index={index}

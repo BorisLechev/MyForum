@@ -12,6 +12,9 @@ const routes = {
 	LOGIN: BASE_URL + "/Identity/Login",
 	REGISTER: BASE_URL + "/Identity/Register",
 	GET_IDENTITY_DETAILS: BASE_URL + "/Identity/",
+	GET_VOTES_BY_ARTICLE_ID: (articleId) => BASE_URL + `/Votes/${articleId}`,
+	POST_VOTE_TO_ARTICLE_ID: BASE_URL + "/Votes",
+	GET_USER_VOTE_TYPE_BY_ARTICLE_ID: (articleId) => BASE_URL + `/Votes?articleId=${articleId}`,
 };
 
 export default routes;

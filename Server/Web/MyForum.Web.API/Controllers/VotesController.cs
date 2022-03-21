@@ -47,5 +47,15 @@
 
             return result;
         }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<UserVoteTypeResponseModel>> GetUserVoteType([FromQuery] int articleId)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await this.votesService.GetUserVoteTypeAsync(articleId, userId);
+
+            return result;
+        }
     }
 }

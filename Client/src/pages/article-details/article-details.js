@@ -41,6 +41,7 @@ const ArticleDetailsPage = () => {
                     description={article.content}
                     author={article.authorUsername}
                     createdOn={article.createdOn}
+                    initialVotes={article.votesCount}
                     deleteHandler={deleteHandler}
                 />
             </div>

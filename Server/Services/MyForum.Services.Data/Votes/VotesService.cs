@@ -6,6 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyForum.Data.Common.Repositories;
     using MyForum.Data.Models;
+    using MyForum.Web.ViewModels.Votes;
 
     public class VotesService : IVotesService
     {
@@ -49,6 +50,22 @@
             }
 
             await this.votesRepository.SaveChangesAsync();
+        }
+
+        public async Task<UserVoteTypeResponseModel> GetUserVoteTypeAsync(int articleId, string userId)
+        {
+            var vote = await this.votesRepository
+                .AllAsNoTracking()
+                .SingleOrDefaultAsync(v => v.ArticleId == articleId && v.AuthorId == userId);
+
+            var type = vote?.Type ?? VoteType.Neutral;
+
+            var result = new UserVoteTypeResponseModel
+            {
+                VoteType = (int)type,
+            };
+
+            return result;
         }
     }
 }
