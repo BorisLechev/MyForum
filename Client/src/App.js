@@ -20,7 +20,7 @@ function App() {
             (obj) => {
               setUser({ username: obj.username, userId: obj.userId })
             },
-            (error) => console.log(error),
+            () => console.log(),
         );
     };
   
