@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ArticleInputForm from "../../components/forms/article-input/article-input";
 import articlesService from "../../services/articles";
 import PageLayout from "../layout/layout";
@@ -7,7 +7,6 @@ import PageLayout from "../layout/layout";
 const EditArticlePage = () => {
     const [article, setArticle] = useState({});
     const { id } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
       const fetchData = async () => {
@@ -20,29 +19,13 @@ const EditArticlePage = () => {
     
       fetchData();
     }, [id]);
-    
-    const handleFormSubmit = async (event, title, content) => {
-        event.preventDefault();
-
-        const body = {
-            title,
-            content,
-        };
-
-        await articlesService.editArticle(
-            id,
-            body,
-            (response) => navigate(`/articles/${response.id}`),
-            (error) => console.log(error),
-        );
-    };
 
     return (
         <PageLayout>
             <ArticleInputForm
+                mode="edit"
                 initialTitle={article.title}
                 initialContent={article.content}
-                handleFormSubmit={handleFormSubmit}
             />
         </PageLayout>
     );
