@@ -45,11 +45,13 @@ const HomePage = () => {
                     Create Article
                 </Link>
             ) : null}
-            <Pagination
-                articlesPerPage="5"
-                totalArticles={articlesCount}
-                onClickHandler={fetchArticles}
-            />
+            {articles.length > 0 ? (
+                <Pagination
+                    articlesPerPage="5"
+                    totalArticles={articlesCount}
+                    onClickHandler={fetchArticles}
+                />
+            ) : null}
             <Articles initialArticles={articles} />
         </PageLayout>
     );
