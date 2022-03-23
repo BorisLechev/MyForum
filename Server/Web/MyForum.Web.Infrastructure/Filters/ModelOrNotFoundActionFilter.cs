@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace MyForum.Web.Infrastructure.Filters
+﻿namespace MyForum.Web.Infrastructure.Filters
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Filters;
+
     public class ModelOrNotFoundActionFilter : ActionFilterAttribute
     {
         public override void OnActionExecuted(ActionExecutedContext context)
