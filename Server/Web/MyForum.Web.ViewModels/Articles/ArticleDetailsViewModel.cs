@@ -1,11 +1,13 @@
 ﻿namespace MyForum.Web.ViewModels.Articles
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using AutoMapper;
     using MyForum.Data.Models;
     using MyForum.Services.Mapping;
+    using MyForum.Web.ViewModels.Comments;
 
     public class ArticleDetailsViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
@@ -20,6 +22,10 @@
         public DateTime CreatedOn { get; set; }
 
         public int VotesCount { get; set; }
+
+        public IEnumerable<CommentViewModel> Comments { get; set; }
+
+        public int CommentsCount { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {

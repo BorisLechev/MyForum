@@ -19,6 +19,7 @@
     using MyForum.Data.Repositories;
     using MyForum.Data.Seeding;
     using MyForum.Services.Data.Articles;
+    using MyForum.Services.Data.Comments;
     using MyForum.Services.Data.Identity;
     using MyForum.Services.Data.Votes;
     using MyForum.Services.Mapping;
@@ -83,6 +84,7 @@
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IVotesService, VotesService>();
+            services.AddTransient<ICommentsService, CommentsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
