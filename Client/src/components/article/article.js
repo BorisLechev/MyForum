@@ -2,6 +2,8 @@ import moment from 'moment';
 import React, { useContext } from 'react';
 import ReactHtmlParser from "react-html-parser";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon as FontAwesome } from "@fortawesome/react-fontawesome";
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 import UserContext from '../../utils/context';
 import Audit from "../audit/audit";
 import Vote from '../vote/vote';
@@ -15,6 +17,7 @@ const Article = ({
   author,
   createdOn,
   initialVotes,
+  commentsCount,
   deleteHandler,
 }) => {
   const detailsLink = `/articles/${articleId}`;
@@ -31,6 +34,12 @@ const Article = ({
 				{ReactHtmlParser(description)}
 			</div>
 			<div className={styles.audit}>
+				<span>
+					<Link to={detailsLink}>
+						<FontAwesome icon={faComment} />
+						{`${commentsCount} comments`}
+					</Link>
+				</span>
 				<Vote initialVotes={initialVotes} articleId={articleId} />
 				{currentUsername === author ? (
 					<Audit

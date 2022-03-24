@@ -37,6 +37,7 @@ const Articles = ({ initialArticles }) => {
           description={article.content}
           createdOn={article.createdOn}
           initialVotes={article.votesCount}
+          commentsCount={article.commentsCount}
           deleteHandler={deleteHandler}
         />
       ))}

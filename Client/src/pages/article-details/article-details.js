@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Article from "../../components/article/article";
+import Comment from "../../components/comments/comment";
 import articlesService from "../../services/articles";
 import PageLayout from "../layout/layout";
 import styles from "./article-details.module.css";
@@ -39,11 +40,22 @@ const ArticleDetailsPage = () => {
                     articleId={id}
                     title={article.title}
                     description={article.content}
-                    author={article.authorUsername}
+                    author={article.authorUserName}
                     createdOn={article.createdOn}
                     initialVotes={article.votesCount}
+                    commentsCount={article.commentsCount}
                     deleteHandler={deleteHandler}
                 />
+            </div>
+            <h4>Comments:</h4>
+            <div>
+                {article.comments && article.comments.map((comment) => (
+                    <Comment
+                        content={comment.content}
+                        author={comment.authorUserName}
+                        createdOn={comment.createdOn}
+                    />
+                ))}
             </div>
         </PageLayout>
     );

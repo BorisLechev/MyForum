@@ -1,6 +1,6 @@
 .cointainer {
 	width: 100%;
-	display: flex;
+	display: block;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
