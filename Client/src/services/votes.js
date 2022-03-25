@@ -1,3 +1,4 @@
+import getCurrentCookie from "../utils/cookieHelper";
 import crud from "./crud";
 import routes from "./routes";
 
@@ -18,7 +19,7 @@ const postVote = async (body, onSuccess, onFailure) => {
         "POST",
         {
             "Content-Type": "application/json",
-            Authorization: document.cookie.replace("=", " "),
+            Authorization: getCurrentCookie(),
         },
         body,
         onSuccess,
@@ -31,7 +32,7 @@ const getUserVoteType = async (articleId, onSuccess, onFailure) => {
         routes.GET_USER_VOTE_TYPE_BY_ARTICLE_ID(articleId),
         {
             "Content-Type": "application/json",
-            Authorization: document.cookie.replace("=", " "),
+            Authorization: getCurrentCookie(),
         },
         onSuccess,
         onFailure,
